@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kalkulator Bangun Datar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 60%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+       background-color: white;
+            margin-bottom: 20px;
+        }
+
+        nav {
+            background-color: white;
+            color: white;
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+       color:black;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 1.1em;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #22c55e;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: white;
+        }
+
+        .result {
+            margin-top: 20px;
+            background-color: #f7f7f7;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .info {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigasi -->
+    <nav>
+        <ul>
+            <li><a href="pendahuluan.html">Beranda</a></li>
+            <li><a href="materi1.html">Materi</a></li>
+            <li><a href="latihan.html">Latihan</a></li>
+            <li><a href="kalkulator.html">Kalkulator</a></li>
+        </ul>
+    </nav>
+<div class="container">
+    <h1>Kalkulator Bangun Datar</h1>
+    
+    <div class="form-group">
+        <label for="shape">Pilih Bangun Datar:</label>
+        <select id="shape" onchange="showInputFields()">
+            <option value="segitiga">Segitiga</option>
+            <option value="persegi">Persegi</option>
+            <option value="persegi_panjang">Persegi Panjang</option>
+            <option value="jajar_genjang">Jajar Genjang</option>
+            <option value="belah_ketupat">Belah Ketupat</option>
+            <option value="trapesium">Trapesium</option>
+            <option value="layang_layang">Layang-layang</option>
+            <option value="lingkaran">Lingkaran</option>
+        </select>
+    </div>
+
+    <div id="input-fields"></div>
+    
+    <button onclick="calculate()">Hitung</button>
+
+    <div id="result" class="result">
+        <p id="result-luas"></p>
+        <p id="result-keliling"></p>
+    </div>
+
+    <div id="info" class="info"></div>
+</div>
+
+<script>
+    function showInputFields() {
+        const shape = document.getElementById('shape').value;
+        const inputFields = document.getElementById('input-fields');
+        const info = document.getElementById('info');
+        let html = '';
+
+        switch (shape) {
+            case 'segitiga':
+                html = `
+                    <label for="alas">Alas (cm):</label>
+                    <input type="number" id="alas" placeholder="Masukkan alas" required>
+                    <label for="tinggi">Tinggi (cm):</label>
+                    <input type="number" id="tinggi" placeholder="Masukkan tinggi" required>
+                    <label for="sisi1">Sisi 1 (cm):</label>
+                    <input type="number" id="sisi1" placeholder="Masukkan sisi 1" required>
+                    <label for="sisi2">Sisi 2 (cm):</label>
+                    <input type="number" id="sisi2" placeholder="Masukkan sisi 2" required>
+                    <label for="sisi3">Sisi 3 (cm):</label>
+                    <input type="number" id="sisi3" placeholder="Masukkan sisi 3" required>
+                `;
+                info.innerHTML = `
+                    <strong>Segitiga</strong><br>
+                    Rumus Luas: <strong>Luas = 1/2 * alas * tinggi</strong><br>
+                    Rumus Keliling: <strong>Keliling = sisi1 + sisi2 + sisi3</strong>
+                `;
+                break;
+            case 'persegi':
+                html = `
+                    <label for="sisi">Panjang Sisi (cm):</label>
+                    <input type="number" id="sisi" placeholder="Masukkan panjang sisi" required>
+                `;
+                info.innerHTML = `
+                    <strong>Persegi</strong><br>
+                    Rumus Luas: <strong>Luas = sisi²</strong><br>
+                    Rumus Keliling: <strong>Keliling = 4 * sisi</strong>
+                `;
+                break;
+            case 'persegi_panjang':
+                html = `
+                    <label for="panjang">Panjang (cm):</label>
+                    <input type="number" id="panjang" placeholder="Masukkan panjang" required>
+                    <label for="lebar">Lebar (cm):</label>
+                    <input type="number" id="lebar" placeholder="Masukkan lebar" required>
+                `;
+                info.innerHTML = `
+                    <strong>Persegi Panjang</strong><br>
+                    Rumus Luas: <strong>Luas = panjang * lebar</strong><br>
+                    Rumus Keliling: <strong>Keliling = 2 * (panjang + lebar)</strong>
+                `;
+                break;
+            case 'jajar_genjang':
+                html = `
+                    <label for="alas_jg">Alas (cm):</label>
+                    <input type="number" id="alas_jg" placeholder="Masukkan alas" required>
+                    <label for="tinggi_jg">Tinggi (cm):</label>
+                    <input type="number" id="tinggi_jg" placeholder="Masukkan tinggi" required>
+                    <label for="sisi_jg">Panjang Sisi (cm):</label>
+                    <input type="number" id="sisi_jg" placeholder="Masukkan panjang sisi" required>
+                `;
+                info.innerHTML = `
+                    <strong>Jajar Genjang</strong><br>
+                    Rumus Luas: <strong>Luas = alas * tinggi</strong><br>
+                    Rumus Keliling: <strong>Keliling = 2 * (alas + sisi)</strong>
+                `;
+                break;
+            case 'belah_ketupat':
+                html = `
+                    <label for="diagonal1">Diagonal 1 (cm):</label>
+                    <input type="number" id="diagonal1" placeholder="Masukkan diagonal 1" required>
+                    <label for="diagonal2">Diagonal 2 (cm):</label>
+                    <input type="number" id="diagonal2" placeholder="Masukkan diagonal 2" required>
+                    <label for="sisi_bk">Panjang Sisi (cm):</label>
+                    <input type="number" id="sisi_bk" placeholder="Masukkan panjang sisi" required>
+                `;
+                info.innerHTML = `
+                    <strong>Belah Ketupat</strong><br>
+                    Rumus Luas: <strong>Luas = 1/2 * diagonal1 * diagonal2</strong><br>
+                    Rumus Keliling: <strong>Keliling = 4 * sisi</strong>
+                `;
+                break;
+            case 'trapesium':
+                html = `
+                    <label for="alas1">Alas 1 (cm):</label>
+                    <input type="number" id="alas1" placeholder="Masukkan alas 1" required>
+                    <label for="alas2">Alas 2 (cm):</label>
+                    <input type="number" id="alas2" placeholder="Masukkan alas 2" required>
+                    <label for="tinggi_trap">Tinggi (cm):</label>
+                    <input type="number" id="tinggi_trap" placeholder="Masukkan tinggi" required>
+                    <label for="sisi_trap1">Sisi 1 (cm):</label>
+                    <input type="number" id="sisi_trap1" placeholder="Masukkan sisi 1" required>
+                    <label for="sisi_trap2">Sisi 2 (cm):</label>
+                    <input type="number" id="sisi_trap2" placeholder="Masukkan sisi 2" required>
+                `;
+                info.innerHTML = `
+                    <strong>Trapesium</strong><br>
+                    Rumus Luas: <strong>Luas = 1/2 * (alas1 + alas2) * tinggi</strong><br>
+                    Rumus Keliling: <strong>Keliling = alas1 + alas2 + sisi1 + sisi2</strong>
+                `;
+                break;
+            case 'layang_layang':
+                html = `
+                    <label for="diagonal1_ly">Diagonal 1 (cm):</label>
+                    <input type="number" id="diagonal1_ly" placeholder="Masukkan diagonal 1" required>
+                    <label for="diagonal2_ly">Diagonal 2 (cm):</label>
+                    <input type="number" id="diagonal2_ly" placeholder="Masukkan diagonal 2" required>
+                    <label for="sisi1_ly">Sisi 1 (cm):</label>
+                    <input type="number" id="sisi1_ly" placeholder="Masukkan sisi 1" required>
+                    <label for="sisi2_ly">Sisi 2 (cm):</label>
+                    <input type="number" id="sisi2_ly" placeholder="Masukkan sisi 2" required>
+                `;
+                info.innerHTML = `
+                    <strong>Layang-layang</strong><br>
+                    Rumus Luas: <strong>Luas = 1/2 * diagonal1 * diagonal2</strong><br>
+                    Rumus Keliling: <strong>Keliling = 2 * (sisi1 + sisi2)</strong>
+                `;
+                break;
+            case 'lingkaran':
+                html = `
+                    <label for="radius">Jari-jari (cm):</label>
+                    <input type="number" id="radius" placeholder="Masukkan jari-jari" required>
+                `;
+                info.innerHTML = `
+                    <strong>Lingkaran</strong><br>
+                    Rumus Luas: <strong>Luas = π * radius²</strong><br>
+                    Rumus Keliling: <strong>Keliling = 2 * π * radius</strong>
+                `;
+                break;
+        }
+
+        inputFields.innerHTML = html;
+    }
+
+    function calculate() {
+        const shape = document.getElementById('shape').value;
+        let resultLuas, resultKeliling;
+
+        switch (shape) {
+            case 'segitiga':
+                const alas = parseFloat(document.getElementById('alas').value);
+                const tinggi = parseFloat(document.getElementById('tinggi').value);
+                const sisi1 = parseFloat(document.getElementById('sisi1').value);
+                const sisi2 = parseFloat(document.getElementById('sisi2').value);
+                const sisi3 = parseFloat(document.getElementById('sisi3').value);
+
+                if (isNaN(alas) || isNaN(tinggi) || isNaN(sisi1) || isNaN(sisi2) || isNaN(sisi3)) {
+                    alert('Mohon masukkan nilai yang valid!');
+                    return;
+                }
+
+                resultLuas = 0.5 * alas * tinggi;
+                resultKeliling = sisi1 + sisi2 + sisi3;
+                break;
+
+            case 'persegi':
+                const sisi = parseFloat(document.getElementById('sisi').value);
+
+                if (isNaN(sisi)) {
+                    alert('Mohon masukkan nilai yang valid!');
+                    return;
+                }
+
+                resultLuas = sisi * sisi;
+                resultKeliling = 4 * sisi;
+                break;
+
+            case 'persegi_panjang':
+                const panjang = parseFloat(document.getElementById('panjang').value);
+                const lebar = parseFloat(document.getElementById('lebar').value);
+
+                if (isNaN(panjang) || isNaN(lebar)) {
+                    alert('Mohon masukkan nilai yang valid!');
+                    return;
+                }
+
+                resultLuas = panjang * lebar;
+                resultKeliling = 2 * (panjang + lebar);
+                break;
+
+            case 'jajar_genjang':
+                const alas_jg = parseFloat(document.getElementById('alas_jg').value);
+                const tinggi_jg = parseFloat(document.getElementById('tinggi_jg').value);
+                const sisi_jg = parseFloat(document.getElementById('sisi_jg').value);
+
+                if (isNaN(alas_jg) || isNaN(tinggi_jg) || isNaN(sisi_jg)) {
+                    alert('Mohon masukkan nilai yang valid!');
+                    return;
+                }
+
+                resultLuas = alas_jg * tinggi_jg;
+                resultKeliling = 2 * (alas_jg + sisi_jg);
+                break;
+
+            case 'belah_ketupat':
+                const diagonal1 = parseFloat(document.getElementById('diagonal1').value);
+                const diagonal2 = parseFloat(document.getElementById('diagonal2').value);
+                const sisi_bk = parseFloat(document.getElementById('sisi_bk').value);
+
+                if (isNaN(diagonal1) || isNaN(diagonal2) || isNaN(sisi_bk)) {
+                    alert('Mohon masukkan nilai yang valid!');
+                    return;
+                }
+
+                resultLuas = 0.5 * diagonal1 * diagonal2;
+                resultKeliling = 4 * sisi_bk;
+                break;
+
+            case 'trapesium':
+                const alas1 = parseFloat(document.getElementById('alas1').value);
+                const alas2 = parseFloat(document.getElementById('alas2').value);
+                const tinggi_trap = parseFloat(document.getElementById('tinggi_trap').value);
+                const sisi_trap1 = parseFloat(document.getElementById('sisi_trap1').value);
+                const sisi_trap2 = parseFloat(document.getElementById('sisi_trap2').value);
+
+                if (isNaN(alas1) || isNaN(alas2) || isNaN(tinggi_trap) || isNaN(sisi_trap1) || isNaN(sisi_trap2)) {
+                    alert('Mohon masukkan nilai yang valid!');
+                    return;
+                }
+
+                resultLuas = 0.5 * (alas1 + alas2) * tinggi_trap;
+                resultKeliling = alas1 + alas2 + sisi_trap1 + sisi_trap2;
+                break;
+
+            case 'layang_layang':
+                const diagonal1_ly = parseFloat(document.getElementById('diagonal1_ly').value);
+                const diagonal2_ly = parseFloat(document.getElementById('diagonal2_ly').value);
+                const sisi1_ly = parseFloat(document.getElementById('sisi1_ly').value);
+                const sisi2_ly = parseFloat(document.getElementById('sisi2_ly').value);
+
+                if (isNaN(diagonal1_ly) || isNaN(diagonal2_ly) || isNaN(sisi1_ly) || isNaN(sisi2_ly)) {
+                    alert('Mohon masukkan nilai yang valid!');
+                    return;
+                }
+
+                resultLuas = 0.5 * diagonal1_ly * diagonal2_ly;
+                resultKeliling = 2 * (sisi1_ly + sisi2_ly);
+                break;
+
+            case 'lingkaran':
+                const radius = parseFloat(document.getElementById('radius').value);
+
+                if (isNaN(radius)) {
+                    alert('Mohon masukkan nilai yang valid!');
+                    return;
+                }
+
+                resultLuas = Math.PI * radius * radius;
+                resultKeliling = 2 * Math.PI * radius;
+                break;
+        }
+
+        document.getElementById('result-luas').innerHTML = `Luas: ${resultLuas.toFixed(2)} cm²`;
+        document.getElementById('result-keliling').innerHTML = `Keliling: ${resultKeliling.toFixed(2)} cm`;
+    }
+</script>
+
+</body>
+</html>

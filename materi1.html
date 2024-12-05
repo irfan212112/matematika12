@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruang Belajar Matematika</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        header img {
+            filter: brightness(70%);
+        }
+        nav a {
+            color: #374151;
+            transition: color 0.3s ease-in-out;
+        }
+        nav a:hover {
+            color: #10b981;
+        }
+        .btn-primary {
+            background-color: #22c55e;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-primary:hover {
+            background-color: #15803d;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigasi -->
+    <nav class="bg-white shadow-md sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-green-500">MATEMATIKA</a>
+            <ul class="flex space-x-6">
+                <li><a href="pendahuluan.html" class="hover:text-green-600">Beranda</a></li>
+                <li><a href="materi1.html" class="hover:text-green-600">Materi</a></li>
+                <li><a href="latihan.html" class="hover:text-green-600">Latihan</a></li>
+                <li><a href="kalkulator.html" class="hover:text-green-600">Kalkulator</a></li>
+            </ul>
+            <a href="#" class="btn-primary">Mulai</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+     
+     
+ <!-- Header dengan gambar -->
+ <header class="relative">
+    <img alt="unram" class="w-full h-96 object-cover" src="matematika.jpeg" />
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
+     <h1 class="text-4xl md:text-5xl font-bold animate__animated animate__fadeIn animate__delay-1s">
+      Selamat Datang di Ruang Belajar Matematika
+     </h1>
+     <p class="mt-4 text-lg md:text-xl">Pelajari materi bangun datar dengan mudah dan interaktif.</p>
+     <a class="mt-6 bg-white text-black px-6 py-3 rounded-full" href="#">Mulai</a>
+    </div>
+   </header>
+   
+    <!-- Konten Materi -->
+    <div class="container mx-auto px-4 py-10">
+        <!-- Video Pendahuluan -->
+        <div class="mb-10 text-center">
+            <h2 class="text-2xl font-bold mb-4">Sebelum Memulai, Simak Video Berikut</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Kym6hDHZVEg?si=FZyzblCE8XEHSCGa" class="mx-auto" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <!-- Materi -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Segitiga -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-xl font-bold text-green-500 mb-4">1. Segitiga</h2>
+                <img src="segitiga.jpg" alt="Segitiga" class="mb-4 mx-auto max-w-[300px] h-auto rounded-lg">
+                <p><strong>Definisi:</strong> Segitiga adalah bangun datar dengan tiga sisi dan tiga sudut.</p>
+                <p class="mt-2"><strong>Rumus:</strong></p>
+                <ul class="list-disc pl-5">
+                    <li>Luas = ½ × alas × tinggi</li>
+                    <li>Keliling = sisi1 + sisi2 + sisi3</li>
+                </ul>
+                <p class="mt-2"><strong>Sifat-Sifat:</strong></p>
+                <ul class="list-disc pl-5">
+                    <li>Memiliki 3 sisi dan 3 sudut.</li>
+                    <li>Jumlah ketiga sudut selalu 180°.</li>
+                </ul>
+            </div>
+
+            <!-- Segitiga Lancip -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-xl font-bold text-green-500 mb-4">Segitiga Lancip</h2>
+                <img src="lancip.jpg"Segitiga Lancip" class="mx-auto mb-4 rounded-lg">
+                <p><strong>Definisi:</strong> Segitiga dengan semua sudutnya kurang dari 90°.</p>
+                <p class="mt-2"><strong>Sifat-sifat:</strong></p>
+                <ul class="list-disc pl-5">
+                    <li>Semua sudut < 90°</li>
+                    <li>Bisa berbentuk sama sisi, sama kaki, atau sembarang</li>
+                </ul>
+            </div>
+
+            <!-- Segitiga Siku-siku -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-xl font-bold text-green-500 mb-4">Segitiga Siku-siku</h2>
+                <img src="siku siku .jpg" alt="Segitiga Siku-siku" class="mx-auto mb-4 rounded-lg">
+                <p><strong>Definisi:</strong> Segitiga dengan satu sudut tepat 90°.</p>
+                <p class="mt-2"><strong>Sifat-sifat:</strong></p>
+                <ul class="list-disc pl-5">
+                    <li>Memiliki satu sudut siku-siku (90°)</li>
+                    <li>Sisi terpanjang disebut hipotenusa</li>
+                    <li>Memenuhi Teorema Pythagoras</li>
+                </ul>
+                <p class="mt-2"><strong>Rumus:</strong></p>
+                <ul class="list-disc pl-5">
+                    <li>Luas = ½ × alas × tinggi</li>
+                    <li>Keliling = alas + tinggi + hipotenusa</li>
+                </ul>
+            </div>
+
+            <!-- Segitiga Tumpul -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-xl font-bold text-green-500 mb-4">Segitiga Tumpul</h2>
+                <img src="tumpul.jpg" alt="Segitiga Tumpul" class="mx-auto mb-4 rounded-lg">
+                <p><strong>Definisi:</strong> Segitiga dengan satu sudut lebih dari 90°.</p>
+                <p class="mt-2"><strong>Sifat-sifat:</strong></p>
+                <ul class="list-disc pl-5">
+                    <li>Memiliki satu sudut tumpul (>90°)</li>
+                    <li>Dua sudut lainnya lancip (<90°)</li>
+                    <li>Sisi terpanjang adalah sisi berhadapan dengan sudut tumpul</li>
+                </ul>
+            </div>
+
+            <!-- Jajar Genjang -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-xl font-bold text-green-500 mb-4">Jajar Genjang</h2>
+                <img src="gambar4.jpg" alt="Jajar Genjang" class="mb-4 mx-auto max-w-[300px] h-auto rounded-lg">
+                <p><strong>Definisi:</strong> Jajar genjang adalah bangun datar dengan dua pasang sisi yang sejajar dan panjangnya sama.</p>
+                <p class="mt-2"><strong>Rumus:</strong></p>
+                <ul class="list-disc pl-5">
+                    <li>Luas = alas × tinggi</li>
+                    <li>Keliling = 2 × (alas + sisi miring)</li>
+                </ul>
+                <p class="mt-2"><strong>Sifat-Sifat:</strong></p>
+                <ul class="list-disc pl-5">
+                    <li>Memiliki dua pasang sisi sejajar yang sama panjang.</li>
+                    <li>Sisi-sisinya berlawanan tetapi sejajar.</li>
+                    <li>Sudut yang berdekatan membentuk sudut pelengkap (jumlahnya 180°).</li>
+                </ul>
+            </div>
+
+            <!-- Belah Ketupat -->
+            <div class="bg-white shadow-md rounded-lg p-6">
+                <h2 class="text-xl font-bold text-green-500 mb-4">Belah Ketupat</h2>
+                <img src="gambar6.jpg" alt="Belah Ketupat" class="mb-4 mx-auto max-w-[300px] h-auto rounded-lg">
+                <p><strong>Definisi:</strong> Belah ketupat adalah bangun datar dengan empat sisi yang sama panjang dan kedua diagonal saling membentuk sudut siku-siku.</p>
+                <p class="mt-2"><strong>Rumus:</strong></p>
+                <ul class="list-disc pl-5">
+                    <li>Luas = ½ × diagonal1 × diagonal2</li>
+                    <li>Keliling = 4 × sisi</li>
+                </ul>
+                <p class="mt-2"><strong>Sifat-Sifat:</strong></p>
+                <ul class="list-disc pl-5">
+                    <li>Keempat sisi memiliki panjang yang sama.</li>
+                    <li>Diagonal saling tegak lurus.</li>
+                    <li>Diagonal membagi belah ketupat menjadi dua segitiga sama besar.</li>
+                </ul>
+            </div>
+            <!-- Layang-Layang -->
+<div class="bg-white shadow-md rounded-lg p-6">
+    <h2 class="text-xl font-bold text-green-500 mb-4">Layang-Layang</h2>
+    <img src="gamabr7.jpg" alt="Layang-Layang" class="mb-4 mx-auto max-w-[300px] h-auto rounded-lg">
+    <p><strong>Definisi:</strong> Layang-layang adalah bangun datar yang memiliki dua pasang sisi yang sama panjang dan berdekatan, serta memiliki diagonal yang saling tegak lurus.</p>
+    <p class="mt-2"><strong>Rumus:</strong></p>
+    <ul class="list-disc pl-5">
+        <li>Luas = ½ × diagonal1 × diagonal2</li>
+        <li>Keliling = 2 × (sisi1 + sisi2)</li>
+    </ul>
+    <p class="mt-2"><strong>Sifat-Sifat:</strong></p>
+    <ul class="list-disc pl-5">
+        <li>Memiliki dua pasang sisi yang berhadapan dan sama panjang.</li>
+        <li>Diagonal pertama membagi dua sudut yang saling berhadapan, dan diagonal kedua membagi dua sisi yang saling berhadapan.</li>
+        <li>Diagonal saling tegak lurus dan membagi layang-layang menjadi empat segitiga sama besar.</li>
+    </ul>
+</div>
+
+<!-- Lingkaran -->
+<div class="bg-white shadow-md rounded-lg p-6">
+    <h2 class="text-xl font-bold text-green-500 mb-4">Lingkaran</h2>
+    <img src="gamabr 10.jpeg" alt="Lingkaran" class="mb-4 mx-auto max-w-[300px] h-auto rounded-lg">
+    <p><strong>Definisi:</strong> Lingkaran adalah bangun datar yang terbentuk dari kumpulan titik yang memiliki jarak yang sama (radius) terhadap titik pusat.</p>
+    <p class="mt-2"><strong>Rumus:</strong></p>
+    <ul class="list-disc pl-5">
+        <li>Luas = π × r²</li>
+        <li>Keliling = 2 × π × r</li>
+    </ul>
+    <p class="mt-2"><strong>Sifat-Sifat:</strong></p>
+    <ul class="list-disc pl-5">
+        <li>Semua titik pada lingkaran memiliki jarak yang sama dari titik pusat.</li>
+        <li>Lingkaran tidak memiliki sudut atau sisi lurus.</li>
+        <li>Diameter adalah dua kali panjang jari-jari (r).</li>
+    </ul>
+</div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-4">
+        <p>&copy; 2024 Ruang Belajar Matematika. Semua hak dilindungi.</p>
+    </footer>
+</body>
+</html>
